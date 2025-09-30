@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Airport';
+    src: url('../fonts/Aeroport.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@layer utilities {
+    .bg-audio-line {
+        background-image: url('../images/linha-de-audio.png');
+        background-size: 100% auto;
+    }
+
+    [contenteditable="true"]:empty:before {
+        content: attr(data-placeholder);
+        color: #9CA3AF;
+        pointer-events: none;
+    }
+}
