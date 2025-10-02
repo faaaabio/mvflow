@@ -42,4 +42,73 @@
         padding: 16px;
         border-radius: 9999px;
     }
+
+    /* Seções */
+    .section-nav {
+        padding-top: 48px;
+        padding-bottom: 60px;
+    }
+
+    .section-titulo {
+        padding-top: 0;
+        padding-bottom: 64px;
+    }
+
+    .section-controles {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    /* Gaps */
+    .gap-64 {
+        gap: 64px;
+    }
+
+    .gap-32 {
+        gap: 32px;
+    }
+
+    .gap-16 {
+        gap: 16px;
+    }
+
+    /* Botões */
+    .btn-settings {
+        padding: 40px;
+        border-radius: 44px;
+    }
+
+    .btn-control {
+        padding: 30px;
+        border-radius: 24px;
+        background-color: #D4D4D4;
+    }
+
+    .btn-control-with-label {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 30px;
+        border-radius: 24px;
+        background-color: #D4D4D4;
+    }
+
+    .btn-control-with-label span {
+        color: #181818;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Rich text field */
+    .rich-text-field-wrapper {
+        max-width: 390px;
+        margin-right: 24px;
+    }
+
+    /* Buttons group */
+    .buttons-group {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
 }
