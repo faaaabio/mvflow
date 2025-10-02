@@ -9,6 +9,16 @@
     font-style: normal;
 }
 
+@layer base {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        border-width: 0;
+        padding: 0;
+    }
+}
+
 @layer utilities {
     .bg-audio-line {
         background-image: url('../images/linha-de-audio.png');
@@ -17,7 +27,19 @@
 
     [contenteditable="true"]:empty:before {
         content: attr(data-placeholder);
-        color: #9CA3AF;
+        color: #828282;
         pointer-events: none;
+    }
+
+    .rich-text-field:empty:before {
+        content: attr(data-placeholder);
+        color: #D4D4D4;
+        font-size: 1.5rem;
+        pointer-events: none;
+    }
+
+    .circle-btn {
+        padding: 16px;
+        border-radius: 9999px;
     }
 }

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes - MUVFlow</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 280px;
+            background: #FAFAFA;
+            border-right: 1px solid #E5E5E5;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .menu-category {
+            padding: 12px 24px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #828282;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item {
+            display: block;
+            padding: 10px 24px;
+            color: #181818;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background: #F5F5F5;
+            color: #181818;
+        }
+
+        .menu-item.active {
+            background: #EBEBEB;
+            color: #181818;
+            font-weight: 500;
+        }
+
+        .component-section {
+            display: none;
+        }
+
+        .component-section.active {
+            display: block;
+        }
+
+        .component-card {
+            background: white;
+            border: 1px solid #E5E5E5;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .component-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #181818;
+            margin-bottom: 8px;
+        }
+
+        .component-description {
+            font-size: 14px;
+            color: #828282;
+            margin-bottom: 24px;
+        }
+
+        .component-preview {
+            padding: 24px;
+            background: #FAFAFA;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body class="font-airport">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="py-8 px-6 border-b border-gray-200">
+            <h1 class="text-2xl text-black-primary font-bold">MUVFlow</h1>
+            <p class="text-sm text-aux-2 mt-1">Design System</p>
+        </div>
+
+        <nav class="py-4">
+            <!-- Foundation Category -->
+            <div class="menu-category">Foundation</div>
+            <a class="menu-item active" onclick="showSection('colors')">Cores</a>
+            <a class="menu-item" onclick="showSection('typography')">Tipografia</a>
+            <a class="menu-item" onclick="showSection('icons')">Ícones</a>
+
+            <!-- Components Category -->
+            <div class="menu-category mt-6">Components</div>
+            <a class="menu-item" onclick="showSection('buttons')">Botões</a>
+            <a class="menu-item" onclick="showSection('inputs')">Inputs</a>
+            <a class="menu-item" onclick="showSection('cards')">Cards</a>
+            <a class="menu-item" onclick="showSection('links')">Links</a>
+
+            <!-- Navigation -->
+            <div class="menu-category mt-6">Navegação</div>
+            <a href="index.html" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 8px;">
+                    <line x1="19" y1="12" x2="5" y2="12"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                </svg>
+                Página Inicial
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="py-12 px-12">
+            <!-- Colors Section -->
+            <section id="colors" class="component-section active">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Cores</h2>
+                <p class="text-aux-3 mb-8">Paleta de cores do sistema de design</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Cores Principais</h3>
+                    <p class="component-description">Cores primárias utilizadas no sistema</p>
+                    <div class="component-preview">
+                        <div class="flex flex-col gap-2">
+                            <div class="w-48 p-6 bg-black-primary rounded-lg">
+                                <p class="text-white text-sm font-bold">black-primary</p>
+                                <p class="text-white text-xs">#181818</p>
+                            </div>
+                            <p class="text-xs text-aux-3">Cor principal para textos e botões</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <div class="w-48 p-6 bg-white border-2 border-aux-2 rounded-lg">
+                                <p class="text-black-primary text-sm font-bold">white</p>
+                                <p class="text-aux-2 text-xs">#FFFFFF</p>
+                            </div>
+                            <p class="text-xs text-aux-3">Cor de fundo padrão</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Cores Auxiliares</h3>
+                    <p class="component-description">Paleta de cores auxiliares do sistema</p>
+                    <div class="component-preview">
+                        <div class="flex flex-col gap-2">
+                            <div class="w-48 p-6 bg-aux-0 border-2 border-aux-2 rounded-lg">
+                                <p class="text-black-primary text-sm font-bold">aux-0</p>
+                                <p class="text-aux-3 text-xs">#FFFFFF</p>
+                            </div>
+                            <p class="text-xs text-aux-3">Branco auxiliar</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <div class="w-48 p-6 bg-aux-1 rounded-lg">
+                                <p class="text-black-primary text-sm font-bold">aux-1</p>
+                                <p class="text-aux-3 text-xs">#EBEBEB</p>
+                            </div>
+                            <p class="text-xs text-aux-3">Cinza muito claro</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <div class="w-48 p-6 bg-aux-2 rounded-lg">
+                                <p class="text-black-primary text-sm font-bold">aux-2</p>
+                                <p class="text-white text-xs">#D4D4D4</p>
+                            </div>
+                            <p class="text-xs text-aux-3">Cinza médio claro</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <div class="w-48 p-6 bg-aux-3 rounded-lg">
+                                <p class="text-white text-sm font-bold">aux-3</p>
+                                <p class="text-white text-xs">#828282</p>
+                            </div>
+                            <p class="text-xs text-aux-3">Cinza médio</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Typography Section -->
+            <section id="typography" class="component-section">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Tipografia</h2>
+                <p class="text-aux-3 mb-8">Hierarquia tipográfica do sistema</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Headings</h3>
+                    <p class="component-description">Títulos e subtítulos</p>
+                    <div class="component-preview flex-col items-start">
+                        <h1 class="text-5xl text-black-primary">Heading 1 (5xl)</h1>
+                        <h2 class="text-4xl text-black-primary">Heading 2 (4xl)</h2>
+                        <h3 class="text-3xl text-black-primary">Heading 3 (3xl)</h3>
+                        <h4 class="text-2xl text-black-primary">Heading 4 (2xl)</h4>
+                        <h5 class="text-xl text-black-primary">Heading 5 (xl)</h5>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Body Text</h3>
+                    <p class="component-description">Textos de corpo e auxiliares</p>
+                    <div class="component-preview flex-col items-start">
+                        <p class="text-base text-black-primary">Parágrafo com texto normal (base)</p>
+                        <p class="text-sm text-aux-2">Texto pequeno (sm)</p>
+                        <p class="text-sm text-aux-3">Texto auxiliar (sm)</p>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Fonte</h3>
+                    <p class="component-description">Font family: Airport</p>
+                    <div class="component-preview">
+                        <p class="text-2xl text-black-primary">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Icons Section -->
+            <section id="icons" class="component-section">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Ícones</h2>
+                <p class="text-aux-3 mb-8">Biblioteca de ícones do sistema</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Ícones de Interface</h3>
+                    <p class="component-description">Ícones comuns utilizados na interface</p>
+                    <div class="component-preview">
+                        <div class="flex flex-col items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            <span class="text-xs text-aux-3">Music</span>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="10 8 16 12 10 16 10 8"/>
+                            </svg>
+                            <span class="text-xs text-aux-3">Play</span>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span class="text-xs text-aux-3">User</span>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                            <span class="text-xs text-aux-3">Home</span>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span class="text-xs text-aux-3">Sparkle</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons Section -->
+            <section id="buttons" class="component-section">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Botões</h2>
+                <p class="text-aux-3 mb-8">Componentes de botão e suas variações</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Primary Button</h3>
+                    <p class="component-description">Botão principal para ações importantes</p>
+                    <div class="component-preview">
+                        <button class="p-4 text-sm bg-black-primary text-white rounded-2xl hover:opacity-80 transition-all">
+                            Botão Primary
+                        </button>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Button com Ícone</h3>
+                    <p class="component-description">Botão com ícone à esquerda</p>
+                    <div class="component-preview">
+                        <button class="flex items-center gap-2 p-4 text-sm bg-black-primary text-white rounded-2xl hover:opacity-80 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Entrar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Circle Button</h3>
+                    <p class="component-description">Botão circular para ícones</p>
+                    <div class="component-preview">
+                        <button class="w-12 h-12 rounded-full bg-black-primary text-white flex items-center justify-center hover:opacity-80 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Outline Button</h3>
+                    <p class="component-description">Botão com borda, sem preenchimento</p>
+                    <div class="component-preview">
+                        <button class="p-4 text-sm border-2 border-black-primary text-black-primary rounded-2xl hover:bg-black-primary hover:text-white transition-colors">
+                            Botão Outline
+                        </button>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Circle Button (Outline)</h3>
+                    <p class="component-description">Botão circular com borda e padding de 16px</p>
+                    <div class="component-preview">
+                        <button class="circle-btn border border-aux-2 hover:bg-aux-1 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                                <path d="M20 3v4"/>
+                                <path d="M22 5h-4"/>
+                                <path d="M4 17v2"/>
+                                <path d="M5 18H3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inputs Section -->
+            <section id="inputs" class="component-section">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Inputs</h2>
+                <p class="text-aux-3 mb-8">Campos de entrada de dados</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Text Input</h3>
+                    <p class="component-description">Campo de texto simples</p>
+                    <div class="component-preview">
+                        <input type="text" placeholder="Digite algo..." class="w-full max-w-md px-4 py-3 border border-aux-2 rounded-lg outline-none focus:border-black-primary transition-colors">
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Email Input</h3>
+                    <p class="component-description">Campo para endereço de e-mail</p>
+                    <div class="component-preview">
+                        <input type="email" placeholder="seu@email.com" class="w-full max-w-md px-4 py-3 border border-aux-2 rounded-lg outline-none focus:border-black-primary transition-colors">
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Password Input</h3>
+                    <p class="component-description">Campo para senha</p>
+                    <div class="component-preview">
+                        <input type="password" placeholder="Senha..." class="w-full max-w-md px-4 py-3 border border-aux-2 rounded-lg outline-none focus:border-black-primary transition-colors">
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Textarea</h3>
+                    <p class="component-description">Área de texto multilinha</p>
+                    <div class="component-preview">
+                        <textarea placeholder="Digite seu texto..." rows="4" class="w-full max-w-md px-4 py-3 border border-aux-2 rounded-lg outline-none focus:border-black-primary transition-colors resize-none"></textarea>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Rich Text Field (Com Borda)</h3>
+                    <p class="component-description">Campo editável multilinha com borda e padding</p>
+                    <div class="component-preview">
+                        <div
+                            contenteditable="true"
+                            class="w-full max-w-md min-h-[120px] px-4 py-3 border border-aux-2 rounded-lg text-black-primary text-2xl outline-none focus:border-black-primary transition-colors"
+                            data-placeholder="Digite o texto da sua música..."
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Rich Text Field (Minimalista)</h3>
+                    <p class="component-description">Campo editável sem borda, estilo minimalista com text-2xl</p>
+                    <div class="component-preview flex-col items-start">
+                        <div
+                            contenteditable="true"
+                            class="rich-text-field w-full max-w-[390px] min-h-[100px] text-black-primary text-2xl outline-none"
+                            data-placeholder="Escreva a sua letra aqui e tenha a ajuda da Inteligência artificial para criar suas músicas..."
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Text Input (Título)</h3>
+                    <p class="component-description">Campo de texto simples para títulos, sem borda</p>
+                    <div class="component-preview flex-col items-start">
+                        <div
+                            contenteditable="true"
+                            class="w-full max-w-md min-h-[100px] text-black-primary text-5xl outline-none"
+                            data-placeholder="Título da sua música"
+                        ></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cards Section -->
+            <section id="cards" class="component-section">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Cards</h2>
+                <p class="text-aux-3 mb-8">Componentes de card e suas variações</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Card com Borda</h3>
+                    <p class="component-description">Card com borda e hover effect</p>
+                    <div class="component-preview">
+                        <div class="w-full max-w-sm p-6 border border-aux-2 rounded-2xl hover:shadow-lg transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            <h3 class="text-xl text-black-primary mb-2">Card Título</h3>
+                            <p class="text-aux-3 text-sm">Descrição do card com informações relevantes sobre o conteúdo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Card Escuro</h3>
+                    <p class="component-description">Card com fundo escuro</p>
+                    <div class="component-preview">
+                        <div class="w-full max-w-sm p-6 bg-black-primary text-white rounded-2xl hover:opacity-90 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="10 8 16 12 10 16 10 8"/>
+                            </svg>
+                            <h3 class="text-xl mb-2">Card Escuro</h3>
+                            <p class="text-aux-1 text-sm">Card com fundo escuro e texto claro para contraste.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Card Cinza</h3>
+                    <p class="component-description">Card com fundo cinza claro</p>
+                    <div class="component-preview">
+                        <div class="w-full max-w-sm p-6 bg-aux-1 rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                            <h3 class="text-xl text-black-primary mb-2">Card Cinza</h3>
+                            <p class="text-aux-3 text-sm">Card com fundo cinza claro para destaque sutil.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Links Section -->
+            <section id="links" class="component-section">
+                <h2 class="text-4xl text-black-primary font-bold mb-8">Links</h2>
+                <p class="text-aux-3 mb-8">Estilos de links e navegação</p>
+
+                <div class="component-card">
+                    <h3 class="component-title">Link Padrão</h3>
+                    <p class="component-description">Link simples com hover</p>
+                    <div class="component-preview">
+                        <a href="#" class="text-sm text-black-primary hover:text-aux-2 transition-colors">Link Padrão</a>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Link Sublinhado</h3>
+                    <p class="component-description">Link com sublinhado permanente</p>
+                    <div class="component-preview">
+                        <a href="#" class="text-sm text-black-primary underline hover:text-aux-2 transition-colors">Link Sublinhado</a>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <h3 class="component-title">Link Azul</h3>
+                    <p class="component-description">Link colorido com sublinhado no hover</p>
+                    <div class="component-preview">
+                        <a href="#" class="text-sm text-blue-500 hover:underline transition-all">Link Azul</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.component-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all menu items
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked menu item
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

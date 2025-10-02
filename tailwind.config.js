@@ -10,15 +10,19 @@ module.exports = {
         // Cores principais
         'black-primary': '#181818',
         'white': '#FFFFFF',
+
+        // Aux colors
+        'aux-0': '#FFFFFF',
+        'aux-1': '#EBEBEB',
+        'aux-2': '#D4D4D4',
+        'aux-3': '#828282',
+
+        // Legacy aliases (para compatibilidade)
         'gray-light': '#EBEBEB',
-
-        // Cores de texto
         'text-dark': '#4D4D4D',
-        'text-medium': '#6B7280',
-        'text-aux': '#9CA3AF',
-
-        // Cores de borda
-        'border-gray': '#D1D5DB',
+        'text-medium': '#D4D4D4',
+        'text-aux': '#828282',
+        'border-gray': '#D4D4D4',
       },
     },
   },

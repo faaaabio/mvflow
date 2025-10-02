@@ -23,7 +23,7 @@
 
             <div class="flex items-center gap-4">
                 <a href="#" class="text-sm text-black-primary hover:text-text-medium transition-colors">Cadastrar</a>
-                <button class="flex items-center gap-2 p-4 text-sm bg-black-primary text-white rounded-2xl hover:bg-text-dark transition-colors">
+                <button class="flex items-center gap-2 p-4 text-sm border border-text-medium text-black-primary rounded-2xl hover:bg-gray-light transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
                         <circle cx="12" cy="7" r="4"/>
@@ -34,26 +34,58 @@
         </div>
     </nav>
 
-    <section class="py-20 px-20">
+    <!-- Titulo -->
+    <section class="px-20" style="padding-top: 64px; padding-bottom: 64px;">
         <div class="flex flex-col items-start max-w-[1400px] mx-auto">
             <div
                 contenteditable="true"
-                class="w-full min-h-[100px] text-black-primary text-5xl outline-none"
+                class="w-full text-black-primary text-5xl outline-none"
                 data-placeholder="Título da sua música"
             ></div>
         </div>
     </section>
 
-    <section class="w-full h-9 bg-center bg-no-repeat bg-audio-line">
+    <!-- Audio -->
+    <section class="w-full h-9 bg-center bg-no-repeat bg-audio-line" style="background-position: center center;">
     </section>
 
+    <!-- Controles -->
     <section class="py-20 px-20">
-        <div class="flex flex-col items-start max-w-[1400px] mx-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18V5l12-2v13"/>
-                <circle cx="6" cy="18" r="3"/>
-                <circle cx="18" cy="16" r="3"/>
-            </svg>
+        <div class="flex flex-row gap-8 max-w-[1400px] mx-auto">
+            <!-- Coluna 1 -->
+            <div class="flex-1 flex items-start" style="gap: 32px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+                    <circle cx="8" cy="18" r="4"/>
+                    <path d="M12 18V2l7 4"/>
+                </svg>
+                <div
+                    contenteditable="true"
+                    class="rich-text-field flex-1 text-black-primary text-2xl outline-none"
+                    style="max-width: 390px; margin-right: 24px;"
+                    data-placeholder="Escreva a sua letra aqui e tenha a ajuda da Inteligência artificial para criar suas músicas..."
+                ></div>
+                <button class="circle-btn border border-text-medium hover:bg-gray-light transition-colors flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                        <path d="M20 3v4"/>
+                        <path d="M22 5h-4"/>
+                        <path d="M4 17v2"/>
+                        <path d="M5 18H3"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Coluna 2 -->
+            <div class="flex-1 flex items-start">
+                <button class="bg-text-medium hover:bg-text-dark transition-colors" style="padding: 40px; border-radius: 44px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 7h-9"/>
+                        <path d="M14 17H5"/>
+                        <circle cx="17" cy="17" r="3"/>
+                        <circle cx="7" cy="7" r="3"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
